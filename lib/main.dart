@@ -29,18 +29,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<dynamic> items = [];
+  List<dynamic> dialogs = [];
 
   Future<void> loadJson() async {
     String jsonData = await rootBundle.loadString('assets/sample.json');
     Map<String, dynamic> data = json.decode(jsonData);
-    items = data['items'];
+    dialogs = data['dialogs'];
   }
 
   void printItemDescription(String id) {
-    dynamic item = items.firstWhere((item) => item['id'] == id, orElse: () => null);
+    dynamic item =
+        dialogs.firstWhere((item) => item['isim'] == id, orElse: () => null);
     if (item != null) {
-      String description = item['description'];
+      String description = item['message'];
       print(description);
     }
   }
@@ -52,7 +53,10 @@ class _MyHomePageState extends State<MyHomePage> {
       printItemDescription('p2');
     });
   }
-  @override
+
+  List<String> persons = ['Eda', 'Harun', 'Ercument'];
+  int personTurn = 0;
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -65,7 +69,8 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             TextButton(
               onPressed: () {
-                printItemDescription('p2');
+                printItemDescription(persons[personTurn%3]);
+                personTurn++;
               },
               child: const Text("Print Description"),
             ),

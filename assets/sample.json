@@ -1,19 +1,19 @@
 {
-  "items": [
+  "dialogs": [
     {
-      "id": "p1",
-      "name": "Item 1",
-      "description": "Desc 1"
+      "isim": "Eda",
+      "numara": "0 538 711 80 33",
+      "message": "Amirim Maktul ölmüş olabilir"
     },
     {
-      "id": "p2",
-      "name": "Item 2",
-      "description": "Desc 2"
+      "isim": "Harun",
+      "numara": "0 538 711 80 32",
+      "message": "Abi edaya inanma"
     },
     {
-      "id": "p3",
-      "name": "Item 3",
-      "description": "Desc 3"
+      "isim": "Ercument",
+      "numara": "0 538 711 80 31",
+      "message": "Bana Maktülün Resmini çizebilir misin başkomiser zuhah"
     }
   ]
 }
