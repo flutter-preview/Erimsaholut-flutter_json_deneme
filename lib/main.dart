@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'messageBaloon.dart';
 import 'dart:convert' show json;
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -34,14 +35,22 @@ class _MyHomePageState extends State<MyHomePage> {
     String jsonData = await rootBundle.loadString('assets/sample.json');
     Map<String, dynamic> data = json.decode(jsonData);
     dialogs = data['dialogs'];
+
+    for (var dialog in dialogs) {
+      persons.add(dialog['isim']);
+    }
+
   }
 
   void printItemDescription(String id) {
     dynamic item =
-        dialogs.firstWhere((item) => item['isim'] == id, orElse: () => null);
+    dialogs.firstWhere((item) => item['isim'] == id, orElse: () => null);
     if (item != null) {
-      String description = item['message'];
-      print(description);
+      setState(() {
+        String description = item['message'];
+        String numara = item['numara'];
+        baloons.add(MessageBalloon(isim: id, telNo: numara, message: description));
+      });
     }
   }
 
@@ -53,26 +62,34 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-  List<String> persons = ['Eda', 'Harun', 'Ercument'];
+  List<String> persons = [];
   int personTurn = 0;
+  List<Widget> baloons = [
+    const MessageBalloon(
+      isim: "deneme",
+      telNo: "2331",
+      message: "Merhaba ben whatsapp kullanıyorum",
+    ),
+  ];
 
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.grey,
-        title: const Text('Jsn'),
+        title: const Text('Messages'),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
             TextButton(
               onPressed: () {
-                printItemDescription(persons[personTurn%3]);
+                printItemDescription(persons[personTurn % persons.length]);
                 personTurn++;
               },
-              child: const Text("Print Description"),
+              child: const Text("NewMessage"),
             ),
+            ...baloons,
           ],
         ),
       ),

@@ -2,18 +2,33 @@
   "dialogs": [
     {
       "isim": "Eda",
-      "numara": "0 538 711 80 33",
+      "numara": "+44 7456 123456",
       "message": "Amirim Maktul ölmüş olabilir"
     },
     {
       "isim": "Harun",
-      "numara": "0 538 711 80 32",
+      "numara": "+49 1520 987654",
       "message": "Abi edaya inanma"
     },
     {
       "isim": "Ercument",
-      "numara": "0 538 711 80 31",
+      "numara": "+81 90 87654321",
       "message": "Bana Maktülün Resmini çizebilir misin başkomiser zuhah"
+    },
+    {
+      "isim": "Akbaba",
+      "numara": " +1 202-555-0198",
+      "message": "Amirim benim burnuma bi kokular geliyor ama "
+    },
+    {
+      "isim": "Hayalet",
+      "numara": "+33 6 12 34 56 78",
+      "message": "Amirim selim işi bırakmış galiba bulamadım hiçbir yerde"
+    },
+    {
+      "isim": "Cevdet",
+      "numara": "+61 412 345 678",
+      "message": "Maktül selimdi komserim :("
     }
   ]
 }
